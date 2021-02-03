@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <title>{% block title %}Welcome!{% endblock %}</title>
+    {% include '_navbar.html.twig' %}
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -18,4 +19,6 @@
     {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     {% block body %}{% endblock %}
+    {% include '_footer.html.twig' %}
+
 </html>

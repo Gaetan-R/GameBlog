@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#showcase{
+  background-image: url("https://www.gruene-fraktion-bayern.de/fileadmin/_processed_/3/3/csm_200528_Sharepic_Gaming_PK_Katha_fe50a6a4be.jpg");
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
