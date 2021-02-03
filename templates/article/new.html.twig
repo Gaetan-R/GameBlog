@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.poster) }}
+    {{ form_row(form.plateform, {'attr': {'class': 'browser-default'} }) }}
+    <input type='submit' value='Add new article'>
+    {{ form_end(form) }}
+{% endblock %}

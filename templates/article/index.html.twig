@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+    <h1>Voici les derniers articles</h1>
+    {% for article in articles %}
+        <div>
+            <img class="" src="{{article.poster}}" alt="{{ article.title }} poster" style="width: 10%">
+
+            <h2>{{ article.title }} - {{ article.plateform.name }}</h2>
+        </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+{% endblock %}

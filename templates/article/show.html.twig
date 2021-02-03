@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Série #{{ program.id }}{% endblock %}
+
+{% block body %}
+
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{article.poster}}" alt="{{ article.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ article.title }}</h1>
+            <p>{{ article.description }}</p>
+            <p>Plateforme : {{ article.plateform.name }}</p>
+            {% for article in articles %}
+
+            {% else %}
+                Aucune saison disponible
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

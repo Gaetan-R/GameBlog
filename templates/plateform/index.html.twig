@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} List of categories{% endblock %}
+
+{% block body %}
+    <h1>Plateform</h1>
+    {% for plateform in plateforms %}
+        <div class="plateform-order">
+            <img class="" src="{{plateform.image}}" alt="{{ plateform.name }} poster" style="width: 10%">
+                <h2> - {{ plateform.name }}</h2>
+                <h5>Date de sortie : {{ plateform.year }}</h5>
+        </div>
+    {% else %}
+        No plateforms
+    {% endfor %}
+
+    <div>
+        <a class="ref-return" href="{{ path('plateform_new') }}">Create new plateforms </a>
+    </div>
+
+{% endblock %}
