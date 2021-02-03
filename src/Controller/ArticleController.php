@@ -49,5 +49,26 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/show/{id<^[0-9]+$>}", name="show")
+     * @return Response
+     */
+    public function show(int $id):Response
 
+    {
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findOneBy(['id' => $id]);
+
+        if (!$article) {
+            throw $this->createNotFoundException(
+                'No program with id : '.$id.' found in program\'s table.'
+            );
+        }
+
+        return $this->render('article/show.html.twig', [
+
+            'article' => $article,
+        ]);
+    }
 }

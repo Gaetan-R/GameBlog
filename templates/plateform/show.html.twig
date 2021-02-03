@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plateform #{{ plateform.id }}{% endblock %}
+
+
+{% block body %}
+
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{plateform.image}}" alt="{{ plateform.name }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ plateform.name }}</h1>
+            <p>Plateforme : {{ plateform.name }}</p>
+            <p>Description :{{ plateform.description }}</p>
+        </div>
+    </div>
+    <a href="{{ path('plateform_index') }}">
+        Retour à la liste des plateformes
+    </a>
+{% endblock %}

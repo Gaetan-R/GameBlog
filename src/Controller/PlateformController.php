@@ -48,4 +48,24 @@ class PlateformController extends AbstractController
             "form" => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/show/{id<^[0-9]+$>}", name="show")
+     * @return Response
+     */
+    public function show(int $id):Response
+    {
+        $plateform = $this->getDoctrine()
+            ->getRepository(Plateform::class)
+            ->findOneBy(['id' => $id]);
+
+        if (!$plateform) {
+            throw $this->createNotFoundException(
+                'No program with id : '.$id.' found in program\'s table.'
+            );
+        }
+        return $this->render('plateform/show.html.twig', [
+            'plateform' => $plateform,
+        ]);
+    }
 }

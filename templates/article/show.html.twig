@@ -1,5 +1,8 @@
+
 {% extends 'base.html.twig' %}
-{% block title %}Série #{{ program.id }}{% endblock %}
+
+{% block title %}Article #{{ article.id }}{% endblock %}
+
 
 {% block body %}
 
@@ -9,13 +12,9 @@
             <h1 class="mt-0">{{ article.title }}</h1>
             <p>{{ article.description }}</p>
             <p>Plateforme : {{ article.plateform.name }}</p>
-            {% for article in articles %}
-
-            {% else %}
-                Aucune saison disponible
-            {% endfor %}
         </div>
     </div>
-
-
+    <a href="{{ path('article_index') }}">
+        Retour à la liste des articles
+    </a>
 {% endblock %}

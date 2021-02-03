@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Plateform;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\AbstractType;
@@ -17,6 +18,7 @@ class PlateformType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('year', IntegerType::class)
+            ->add('description', TextareaType::class)
             ->add('image', TextType::class)
         ;
     }
