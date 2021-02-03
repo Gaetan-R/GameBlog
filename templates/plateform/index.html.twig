@@ -1,29 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} List of categories{% endblock %}
+{% block title %}Plateform index{% endblock %}
 
 {% block body %}
-    <div>
-        <a href="{{ path('home_index') }}">Back to home</a>
-    </div>
-    <div>
-        <a href="{{ path('plateform_new') }}">Create new plateform</a>
-    </div>
+    <h1>Plateform index</h1>
+    <a href="{{ path('plateform_new') }}">Create new</a>
 
-    <h1>Plateform</h1>
-    {% for plateform in plateforms %}
-        <div class="plateform-order">
-            <img class="" src="{{plateform.image}}" alt="{{ plateform.name }} poster" style="width: 10%">
-                <h2> - {{ plateform.name }}</h2>
-                <h5>Date de sortie : {{ plateform.year }}</h5>
-            <a href="{{ path("plateform_show", { id: plateform.id }) }}">Voir la fiche</a>
-
-        </div>
-    {% else %}
-        No plateforms
-    {% endfor %}
-    <div>
-        <a class="ref-return" href="{{ path('plateform_new') }}">Create new plateforms </a>
-    </div>
-
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plateform in plateforms %}
+            <tr>
+                <td>{{ plateform.id }}</td>
+                <td>{{ plateform.name }}</td>
+                <td>{{ plateform.year }}</td>
+                <td>{{ plateform.image }}</td>
+                <td>{{ plateform.description }}</td>
+                <td>
+                    <a href="{{ path('plateform_show', {'id': plateform.id}) }}">show</a>
+                    <a href="{{ path('plateform_edit', {'id': plateform.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

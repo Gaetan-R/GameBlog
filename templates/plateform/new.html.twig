@@ -1,14 +1,11 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
+{% block title %}New Plateform{% endblock %}
 
 {% block body %}
+    <h1>Create new Plateform</h1>
 
-    {{ form_start(form) }}
+    {{ include('plateform/_form.html.twig') }}
 
-    {{ form_widget(form) }}
-
-    <input type='submit' value='Add new plateform'>
-
-    {{ form_end(form) }}
-
+    <a href="{{ path('plateform_index') }}">back to list</a>
 {% endblock %}
