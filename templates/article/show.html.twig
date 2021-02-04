@@ -11,6 +11,12 @@
             <h1 class="mt-0">{{ article.title }}</h1>
             <p>{{ article.description }}</p>
             <p>Plateforme : {{ article.plateform.name }}</p>
+            <p> Favoris
+
+                <a id="watchlist" class="like" href="{{ path('article_watchlist', {id: article.id})}}">
+                    <i class="{{ app.user.isInWatchlist(article) ? 'fas' : 'far' }} fa-heart"></i>
+                </a>
+            </p>
         </div>
     </div>
 

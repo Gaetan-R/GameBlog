@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\User;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,6 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 /**
@@ -55,7 +58,8 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"})use Doctrine\ORM\EntityManagerInterface;
+
      */
     public function show(Article $article): Response
     {
@@ -106,5 +110,25 @@ class ArticleController extends AbstractController
         }
 
         return $this->redirectToRoute('article_index');
+    }
+
+    /**
+     * @Route("/{id}/watchlist", name="watchlist")
+     * @return Response
+     */
+    public function addToWatchlist(Request $request, Article $article, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->getUser()->getArticles()->contains($article)) {
+            $this->getUser()->removeArticle($article);
+        }
+        else {
+            $this->getUser()->addArticle($article);
+        }
+
+        $entityManager->flush();
+
+        return $this->json([
+            'isInWatchlist' => $this->getUser()->isInWatchlist($article)
+        ]);
     }
 }

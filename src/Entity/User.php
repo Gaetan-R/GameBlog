@@ -44,9 +44,15 @@ class User implements UserInterface
      */
     private $articles;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Article::class)
+     */
+    private $Article;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->Article = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -155,5 +161,22 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticle(): Collection
+    {
+        return $this->Article;
+    }
+
+    public function isInWatchlist(Article $article)
+    {
+        if ($this->getArticles()->contains($article)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
