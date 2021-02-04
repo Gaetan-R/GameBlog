@@ -39,6 +39,8 @@ class PlateformController extends AbstractController
             $entityManager->persist($plateform);
             $entityManager->flush();
 
+            $this->addFlash('success', 'The new plateform has been created');
+
             return $this->redirectToRoute('plateform_index');
         }
 
@@ -74,6 +76,9 @@ class PlateformController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'The plateform has been edit');
+
+
             return $this->redirectToRoute('plateform_index');
         }
 
@@ -92,6 +97,8 @@ class PlateformController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($plateform);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'Plateform delete 🙊 !');
         }
 
         return $this->redirectToRoute('plateform_index');
