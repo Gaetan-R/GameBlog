@@ -3,9 +3,9 @@
 {% block title %}New Plateform{% endblock %}
 
 {% block body %}
-    <h1>Create new Plateform</h1>
+    <h1 class="article-title">Ajouter une plateform</h1>
 
     {{ include('plateform/_form.html.twig') }}
 
-    <a href="{{ path('plateform_index') }}">back to list</a>
+    <a class="lien" href="{{ path('plateform_index') }}">Revenir vers la liste</a>
 {% endblock %}

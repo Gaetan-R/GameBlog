@@ -1,0 +1,99 @@
+.article-title{
+display: flex;
+justify-content: center;
+font-size: 60px
+}
+
+
+.lien, .privateAdmin{
+  margin-left: 0.5rem;
+  font-size: 30px;
+  color: #2469A6;;
+  font-family: "Atlas";
+}
+
+.privateAdmin{
+  margin-left: 0.5rem;
+  font-size: 30px;
+  color: #ff9f43;;
+  font-family: "Atlas";
+}
+
+.article-card{
+  display: flex;
+  justify-content: center;
+}
+
+.media {
+  display: flex;
+}
+
+.container-bloc{
+  padding: 50px;
+  width: 70%;
+}
+
+.description{
+  margin-top: 40px;
+}
+
+.game-pictures{
+  border-style: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: 2px 4px 3px black;
+
+}
+
+.delete-button{
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.wrapper-part1{
+  top: 70%;
+  transform: translateY(-55%);
+  width: 100%;
+  padding-bottom: 10rem;
+  padding-top: 40rem;
+}
+
+.contact-form{
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #7fcec5;
+  background-image: linear-gradient(315deg, #7fcec5 0%, #14557b 74%);  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 5px;
+}
+
+label{
+  color: whitesmoke;
+  font-family: "Techno";
+  font-size: 15px;
+}
+
+.label{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 1rem;
+}
+
+
+@media screen and (max-width: 600px){
+  .contact-form{
+    flex-direction: column;
+  }
+  .input-fields,
+  {
+    width: 100%;
+  }
+}
+
+footer{
+  margin-top:170px;
+}

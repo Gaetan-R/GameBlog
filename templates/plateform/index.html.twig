@@ -3,31 +3,30 @@
 {% block title %}Plateform index{% endblock %}
 
 {% block body %}
-    <h1>Plateform index</h1>
-    <a href="{{ path('plateform_new') }}">Create new</a>
+    {% include '_navbar.html.twig' %}
+
+    <h1 class="article-title">Liste des plateformes</h1>
+
+    <a class="privateAdmin" href="{{ path('plateform_new') }}">Ajouter une plateforme</a>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Year</th>
-                <th>Image</th>
                 <th>Description</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for plateform in plateforms %}
             <tr>
-                <td>{{ plateform.id }}</td>
                 <td>{{ plateform.name }}</td>
                 <td>{{ plateform.year }}</td>
-                <td>{{ plateform.image }}</td>
                 <td>{{ plateform.description }}</td>
                 <td>
-                    <a href="{{ path('plateform_show', {'id': plateform.id}) }}">show</a>
-                    <a href="{{ path('plateform_edit', {'id': plateform.id}) }}">edit</a>
+                    <a class="lien" href="{{ path('plateform_show', {'id': plateform.id}) }}">Voir</a>
+                    <a class="lien" href="{{ path('plateform_edit', {'id': plateform.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -37,4 +36,7 @@
         {% endfor %}
         </tbody>
     </table>
+
+        <a class="lien" href="{{ path('index') }}">Revenir vers l'accueil</a>
+    
 {% endblock %}

@@ -4,28 +4,31 @@
 
 
 {% block body %}
+    {% include '_navbar.html.twig' %}
 
     <div class="media">
-        <img class="align-self-start mr-3" src="{{article.poster}}" alt="{{ article.title }} poster">
-        <div class="media-body">
+        <img class="game-pictures" src="{{article.poster}}" alt="{{ article.title }} poster">
+        <div class="container-bloc">
             <h1 class="mt-0">{{ article.title }}</h1>
-            <p>{{ article.description }}</p>
-            <p>Plateforme : {{ article.plateform.name }}</p>
-            <p> Favoris
+            <p> Ajouter aux favoris
 
                 <a id="watchlist" class="like" href="{{ path('article_watchlist', {id: article.id})}}">
                     <i class="{{ app.user.isInWatchlist(article) ? 'fas' : 'far' }} fa-heart"></i>
                 </a>
             </p>
+            <div class="container">
+            <p class="description">{{ article.description }}</p>
+            <p>Plateforme : {{ article.plateform.name }}</p>
+            </div>
         </div>
     </div>
 
 <div>
-    <a href="{{ path('article_index') }}">back to list</a>
+    <a class="lien" href="{{ path('article_index') }}">Revenir sur la liste des articles</a>
 
 </div>
 <div>
-    <a href="{{ path('article_edit', {'slug': article.id}) }}">edit</a>
+    <a class="privateAdmin" href="{{ path('article_edit', {'slug': article.id}) }}">Editer</a>
 
 </div>
     {{ include('article/_delete_form.html.twig') }}

@@ -7,22 +7,22 @@
 {% block body %}
 
     <div class="media">
-        <img class="align-self-start mr-3" src="{{plateform.image}}" alt="{{ plateform.name }} poster">
-        <div class="media-body">
+        <img class="game-pictures" src="{{plateform.image}}" alt="{{ plateform.name }} poster">
+        <div class="container-bloc">
             <h1 class="mt-0">{{ plateform.name }}</h1>
             <p>Plateforme : {{ plateform.name }}</p>
-            <p>Description :{{ plateform.description }}</p>
+            <div class="container">
+
+            <p>Description : {{ plateform.description }}</p>
+            </div>
         </div>
     </div>
-    <a href="{{ path('plateform_index') }}">
-        Retour à la liste des plateformes
-    </a>
 
-    <div>
-        <a href="{{ path('plateform_index') }}">back to list</a>
+    <div class="bloc">
+        <a class="lien" href="{{ path('plateform_index') }}">Retour sur la liste des plateformes</a>
     </div>
-    <div>
-        <a href="{{ path('plateform_edit', {'id': plateform.id}) }}">edit</a>
+    <div class="bloc2">
+        <a class="privateAdmin" href="{{ path('plateform_edit', {'id': plateform.id}) }}">Editer</a>
     </div>
 
     {{ include('plateform/_delete_form.html.twig') }}

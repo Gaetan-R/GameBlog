@@ -4,26 +4,35 @@
 
  {% block body %}
 
-     <h1>Salut👋 {{ app.user.email }}!</h1>
+     {% include '_navbar.html.twig' %}
 
-     {% for role in app.user.roles %}
+     <h1 class="article-title">Espace perso</h1>
+     <h1 class="article-title">{{ app.user.email }}!</h1>
 
-         <h2> Statut : {{ role }} </h2>
-
-     {% endfor %}
-
-     <h2>Liste des séries ajoutées :</h2>
+     <h2>Vos jeux favoris</h2>
 
      {% for article in userArticles %}
 
-         <ul>
-             <li>
-                 <img class="align-self-start mr-3 " width="200px" src="{{article.poster}}" alt="{{ article.title }} poster">
-                 <h2>Catégorie : {{ article.plateform.name }}</h2>
-                 <p>{{ article.title}}: {{ article.description }}</p>
 
-             </li>
-         </ul>
+         <div class="row article-card">
+             <div class="col s4 16 container">
+                 <div class="card s1">
+                     <div class="card-image">
+                         <img src="{{article.poster}}" alt="" style="">
+                     </div>
+                     <div class="card-content">
+                            <span class="card-title">{{ article.title }} -{{ article.plateform.name }}  <a id="watchlist" class="like" href="{{ path('article_watchlist', {id: article.id})}}">
+
+                                </a></span>
+                     </div>
+
+                     <div class="card-action">
+                         <a href="{{ path("article_show", { id: article.id }) }}">Voir la fiche</a>
+
+                     </div>
+                 </div>
+             </div>
+         </div>
 
      {% endfor %}
 

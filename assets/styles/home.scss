@@ -3,14 +3,18 @@
   padding: 0;
 }
 
-#showcase{
-  background-image: url("https://www.gruene-fraktion-bayern.de/fileadmin/_processed_/3/3/csm_200528_Sharepic_Gaming_PK_Katha_fe50a6a4be.jpg");
-  height: 100vh;
+.navbarHome{
+background: url("/assets/images/Gaming-zone.jpg");
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
+  background-position: center;
+  min-height: 1000px;
 }
+@media screen and (max-width: 670px){
+  .navbarHome{
+    min-height: 500px;
+  }
+
+}
+
+
 

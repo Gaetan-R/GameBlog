@@ -1,4 +1,21 @@
+
+
+
+<div class="contact-form">
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.name) }}
+    {{ form_row(form.year) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.image) }}
+
+    <button class="waves-effect blue darken-1 btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
+</div>
+
+
+
+
+
+
+

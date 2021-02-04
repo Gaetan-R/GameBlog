@@ -4,10 +4,57 @@
 
 {% block body %}
 
-    <header id="showcase">
-        <h1>GameBlog</h1>
-        <h3>The blog of the latest video game releases !</h3>
-        <a href="#" class="button"></a>
+    <header>
+        {% include '_navbarHome.html.twig' %}
+
     </header>
+    <section class="container section" id="photo's">
+
+        <div class="row">
+            <div class="col s6">
+                <img src="https://i.pinimg.com/originals/df/1e/31/df1e31c13d4f74d6f6b5a11131f7ff61.jpg" alt=""
+                     class="responsive-img" style="width: 45%">
+            </div>
+            <div class="col s6 pull-l2">
+                <h2 class="indigo-text text-darken-4">GameBlog, tout sur les dernières sorties jeux vidéo</h2>
+                <p>Il existe beaucoup de passions dans la vie. Certains aiment la littérature, d’autres le cinéma.
+                    Une grande communauté est passionnée par ce que l’on appelle parfois le 10e art : le jeu-vidéo.
+                    Il s’agit ici d’une communauté très active sur le web, qui aime beaucoup discuter,
+                    débattre et partager autour de leurs jeux favoris.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s6 push-s9 ">
+                <img src="https://i.ytimg.com/vi/jxQJAPnv18I/maxresdefault.jpg" alt=""
+                     class="responsive-img" style="width: 90%">
+            </div>
+            <div class="col s6 pull-l4">
+                <h2 class="indigo-text text-darken-4">Plateformes</h2>
+                <p>GameBlog ne fait pas de favoritisme et vous informe autant
+                    sur des jeux Triple A comme sur des jeux indépendants.
+                    Cette catégorie blog jeux vidéo est pour les amoureux des FPS,
+                    jeux d’aventure et d’action, de simulation et de plateforme,
+                    de stratégie et RPG, des jeux de sport ou multijoueurs.
+                    Quels que soient votre type de jeu et la console que vous utilisez,
+                    Les Gicques en parlera, alors restez connecté.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s6">
+                <img src="https://image.freepik.com/vecteurs-libre/logo-jeu-vintage-neons_23-2148236557.jpg" alt=""
+                     class="responsive-img" style="width: 50%">
+            </div>
+            <div class="col s6 pull-l2">
+                <h2 class="indigo-text text-darken-4">Un espace personnel</h2>
+                <p>Avec une présentation entièrement revue de l'espace personnel de chaque abonné, GameBlog
+                    vous propose une interface à partir de laquelle vous allez pouvoir enregistrer vos jeux favoris.</p>
+            </div>
+        </div>
+
+    </section>
+
+
 
 {% endblock %}

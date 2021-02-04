@@ -2,23 +2,43 @@
 
 {% block title %}Articles{% endblock %}
 
+
 {% block body %}
+    {% include '_navbar.html.twig' %}
+
+
+    <h1 class="article-title">Voici les derniers articles</h1>
+    {% for article in articles %}
+
+
+            <div class="row article-card">
+                <div class="col s4 16 container">
+                    <div class="card s1">
+                        <div class="card-image">
+                            <img src="{{article.poster}}" alt="" style="">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">{{ article.title }} -{{ article.plateform.name }}  </span>
+                        </div>
+
+                        <div class="card-action">
+                            <a href="{{ path("article_show", { id: article.id }) }}">Voir la fiche</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    {% endfor %}
     <div>
-        <a href="{{ path('index') }}">Back to home</a>
-    </div>
-    <div>
-        <a href="{{ path('article_new') }}">Create new article</a>
+        <a class="lien" href="{{ path('index') }}">Revenir vers l'accueil</a>
     </div>
 
-    <h1>Voici les derniers articles</h1>
-    {% for article in articles %}
-        <div>
-            <img class="" src="{{article.poster}}" alt="{{ article.title }} poster" style="width: 10%">
-            <h2>{{ article.title }} -{{ article.plateform.name }}</h2>
-            <a href="{{ path("article_show", { id: article.id }) }}">Voir la fiche</a>
-        </div>
-    {% else %}
-        Aucune série trouvée.
-    {% endfor %}
+    <div>
+        <h5><a class="privateAdmin" href="{{ path('article_new') }}">Ajouter un article</a></h5>
+    </div>
+
+
+
 
 {% endblock %}
