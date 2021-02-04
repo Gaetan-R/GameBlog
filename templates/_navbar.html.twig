@@ -7,14 +7,29 @@
         <a href="/home" class="brand-logo">GameBlog</a>
         <a href="#" class="sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
 
-
         <ul class="hide-on-med-and-down right">
+
             <li class="active"><a href="/home">Home</a></li>
             <li><a href="/article">Article</a></li>
             <li><a href="/plateform">Plateforms</a></li>
+            {% if app.user %}
+                {{ app.user.email }}
+               <li> <a href="{{ path('app_logout') }}"> Se déconnecter</a></li>
+            {% else %}
+               <li> <a href="{{ path('app_login') }}"> Se connecter</a></li>
 
+            {% endif %}
+            {% if app.user %}
+
+              <li>  <a href="{{ path('my_account') }}"> Mon compte </a></li>
+
+            {% else %}
+               <li> <a href="{{ path('app_register') }}"> S'inscrire </a></li>
+            {% endif %}
         </ul>
+
     </div>
+
 </nav>
 
 <ul class="sidenav" id="slide_out">

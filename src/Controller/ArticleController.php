@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 
 /**
@@ -39,6 +39,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $article->setOwner($this->getUser());
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -62,10 +63,14 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route ("/{slug}/edit", name="edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Article $article): Response
     {
+        if (!($this->getUser() == $article->getOwner())) {
+            throw new AccessDeniedException('Only the owner can edit the program!');
+        }
+
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 

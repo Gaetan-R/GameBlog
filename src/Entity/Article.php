@@ -38,6 +38,11 @@ class Article
      */
     private $plateform;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
+     */
+    private $owner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class Article
     public function setPlateform(?Plateform $plateform): self
     {
         $this->plateform = $plateform;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
